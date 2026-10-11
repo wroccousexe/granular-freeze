@@ -1,0 +1,95 @@
+// Port of III/009-GRANULAR_FREEZE.maxpat and III/granula.maxpat.
+// Mono capture, stereo equal-power panning, 64 voices, Hann envelopes.
+Data audio(131072);
+Data voices(64, 4);
+History writepos(0);
+History recording(0);
+History ready(0);
+History previousCapture(0);
+History previousClear(0);
+History countdown(0);
+History wetSmooth(0);
+History gainSmooth(0);
+History initialized(0);
+
+capture = in3 >= 0.5;
+clear = in8 >= 0.5;
+buflen = min(131072, max(1, floor(samplerate * 0.15)));
+if (initialized == 0 || (clear && !previousClear) || (capture && !previousCapture)) {
+    for (i = 0; i < 64; i += 1) {
+        poke(voices, 0, i, 0);
+        poke(voices, 0, i, 1);
+    }
+    ready = 0;
+    recording = 0;
+    writepos = 0;
+    countdown = 0;
+    initialized = 1;
+}
+if (capture && !previousCapture) {
+    recording = 1;
+}
+if (clear && !previousClear) {
+    recording = 0;
+}
+if (recording) {
+    poke(audio, in1, writepos);
+    writepos = writepos + 1;
+    if (writepos >= buflen) {
+        recording = 0;
+        ready = 1;
+        countdown = 0;
+    }
+}
+previousCapture = capture;
+previousClear = clear;
+interval = max(1, in7 * samplerate * 0.001);
+duration = max(2, in5 * samplerate * 0.001);
+if (ready && in11 >= 0.5) {
+    if (countdown <= 0) {
+        chosen = -1;
+        for (i = 0; i < 64; i += 1) {
+            if (chosen < 0 && peek(voices, i, 1) <= 0) { chosen = i; }
+        }
+        if (chosen >= 0) {
+            poke(voices, 0, chosen, 0);
+            poke(voices, duration, chosen, 1);
+            poke(voices, clamp(in4 * samplerate * 0.001, 0, buflen - 1), chosen, 2);
+            poke(voices, clamp(in6, 0, 1), chosen, 3);
+        }
+        countdown = countdown + interval;
+    }
+    countdown = countdown - 1;
+}
+left = 0;
+right = 0;
+for (i = 0; i < 64; i += 1) {
+    len = peek(voices, i, 1);
+    if (len > 0) {
+        age = peek(voices, i, 0);
+        pos = peek(voices, i, 2) + age;
+        idx = floor(pos);
+        frac = pos - idx;
+        sample = 0;
+        if (idx >= 0 && idx < buflen) {
+            a = peek(audio, idx);
+            b = 0;
+            if (idx + 1 < buflen) { b = peek(audio, idx + 1); }
+            sample = a + frac * (b - a);
+        }
+        envelope = 0.5 - 0.5 * cos(6.283185307179586 * age / len);
+        p = peek(voices, i, 3) * 1.570796326794897;
+        left = left + sample * envelope * cos(p);
+        right = right + sample * envelope * sin(p);
+        age = age + 1;
+        poke(voices, age, i, 0);
+        if (age >= len) { poke(voices, 0, i, 1); }
+    }
+}
+// Keep overlapping grains at a practical level; smooth host automation.
+norm = 1 / max(1, 0.5 * duration / interval);
+smoothing = 1 - exp(-1 / (samplerate * 0.005));
+wetSmooth = wetSmooth + smoothing * (clamp(in9, 0, 1) - wetSmooth);
+gainSmooth = gainSmooth + smoothing * (pow(10, clamp(in10, -60, 6) / 20) - gainSmooth);
+out1 = ((1 - wetSmooth) * in1 + wetSmooth * left * norm) * gainSmooth;
+out2 = ((1 - wetSmooth) * in2 + wetSmooth * right * norm) * gainSmooth;

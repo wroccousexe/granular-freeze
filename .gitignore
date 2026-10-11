@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.maxsnap
+*.bak
+build/
+dist/
+export/
+*.vst3/
+*.vst3
+*.zip
+.DS_Store
+Thumbs.db

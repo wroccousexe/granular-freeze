@@ -1,0 +1,83 @@
+{
+  "plugin": "009-GRANULAR FREEZE.vst3",
+  "binary_sha256": "5af6a3697df1b7591806e0b53b9d984819ee951a19ee89e6d04446a17148380e",
+  "passed": true,
+  "results": [
+    {
+      "sample_rate": 44100,
+      "block_size": 64,
+      "freeze_rms": 0.09993093045092805,
+      "freeze_peak": 0.1413227915763855,
+      "render_400ms_seconds": 0.014181700069457293,
+      "checks": [
+        "150ms capture",
+        "persistent freeze",
+        "stereo center",
+        "pan left/right",
+        "disable/resume",
+        "clear",
+        "second capture",
+        "dry path and gain",
+        "64-voice density",
+        "finite audio"
+      ]
+    },
+    {
+      "sample_rate": 48000,
+      "block_size": 256,
+      "freeze_rms": 0.09993093165753954,
+      "freeze_peak": 0.14132368564605713,
+      "render_400ms_seconds": 0.014784000115469098,
+      "checks": [
+        "150ms capture",
+        "persistent freeze",
+        "stereo center",
+        "pan left/right",
+        "disable/resume",
+        "clear",
+        "second capture",
+        "dry path and gain",
+        "64-voice density",
+        "finite audio"
+      ]
+    },
+    {
+      "sample_rate": 96000,
+      "block_size": 128,
+      "freeze_rms": 0.09993093119425586,
+      "freeze_peak": 0.14132368564605713,
+      "render_400ms_seconds": 0.032135300105437636,
+      "checks": [
+        "150ms capture",
+        "persistent freeze",
+        "stereo center",
+        "pan left/right",
+        "disable/resume",
+        "clear",
+        "second capture",
+        "dry path and gain",
+        "64-voice density",
+        "finite audio"
+      ]
+    },
+    {
+      "sample_rate": 192000,
+      "block_size": 512,
+      "freeze_rms": 0.09993093131263558,
+      "freeze_peak": 0.14132368564605713,
+      "render_400ms_seconds": 0.05667280009947717,
+      "checks": [
+        "150ms capture",
+        "persistent freeze",
+        "stereo center",
+        "pan left/right",
+        "disable/resume",
+        "clear",
+        "second capture",
+        "dry path and gain",
+        "64-voice density",
+        "finite audio"
+      ]
+    }
+  ]
+}

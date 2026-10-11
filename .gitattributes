@@ -1,0 +1,8 @@
+*.md text eol=lf
+*.py text eol=lf
+*.genexpr text eol=lf
+*.maxpat text eol=lf
+*.rnbopat text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.wav binary
