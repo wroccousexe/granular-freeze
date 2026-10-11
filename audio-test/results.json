@@ -1,6 +1,6 @@
 {
-  "plugin": "009-GRANULAR FREEZE.vst3",
-  "binary_sha256": "5af6a3697df1b7591806e0b53b9d984819ee951a19ee89e6d04446a17148380e",
+  "plugin": "GRANULAR FREEZE.vst3",
+  "binary_sha256": "c6fdc6a824be57400146776d9b17aebe7f45a874e368e09cdcad1b2862f814cd",
   "passed": true,
   "results": [
     {
@@ -8,7 +8,7 @@
       "block_size": 64,
       "freeze_rms": 0.09993093045092805,
       "freeze_peak": 0.1413227915763855,
-      "render_400ms_seconds": 0.014181700069457293,
+      "render_400ms_seconds": 0.015156300039961934,
       "checks": [
         "150ms capture",
         "persistent freeze",
@@ -27,7 +27,7 @@
       "block_size": 256,
       "freeze_rms": 0.09993093165753954,
       "freeze_peak": 0.14132368564605713,
-      "render_400ms_seconds": 0.014784000115469098,
+      "render_400ms_seconds": 0.015367999905720353,
       "checks": [
         "150ms capture",
         "persistent freeze",
@@ -46,7 +46,7 @@
       "block_size": 128,
       "freeze_rms": 0.09993093119425586,
       "freeze_peak": 0.14132368564605713,
-      "render_400ms_seconds": 0.032135300105437636,
+      "render_400ms_seconds": 0.03093389980494976,
       "checks": [
         "150ms capture",
         "persistent freeze",
@@ -65,7 +65,7 @@
       "block_size": 512,
       "freeze_rms": 0.09993093131263558,
       "freeze_peak": 0.14132368564605713,
-      "render_400ms_seconds": 0.05667280009947717,
+      "render_400ms_seconds": 0.05952739994972944,
       "checks": [
         "150ms capture",
         "persistent freeze",
@@ -79,5 +79,6 @@
         "finite audio"
       ]
     }
-  ]
+  ],
+  "internal_name": "GRANULAR FREEZE"
 }

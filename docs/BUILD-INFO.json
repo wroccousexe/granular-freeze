@@ -1,0 +1,18 @@
+{
+  "plugin_name": "GRANULAR FREEZE",
+  "platform": "Windows x86_64",
+  "format": "VST3",
+  "max_version": "9.0.0",
+  "rnbo_version": "1.3.3",
+  "cloud_build_id": 92824,
+  "binary": "export/GRANULAR FREEZE.vst3/Contents/x86_64-win/GRANULAR FREEZE.vst3",
+  "binary_sha256": "c6fdc6a824be57400146776d9b17aebe7f45a874e368e09cdcad1b2862f814cd",
+  "audio_checks_passed": true,
+  "sample_rates": [
+    44100,
+    48000,
+    96000,
+    192000
+  ],
+  "public_binary_distribution": "Pending confirmation of RNBO export license requirements"
+}

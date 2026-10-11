@@ -18,7 +18,7 @@ Il punto di partenza è esattamente `III/009-GRANULAR_FREEZE.maxpat` e la subpat
 
 ## Stato
 
-La precedente compilazione VST3 ha superato i test audio a 44,1 / 48 / 96 / 192 kHz. I risultati indicano esplicitamente il modulo verificato e il suo SHA-256. La nuova esportazione con nome interno GRANULAR FREEZE deve ancora essere compilata e verificata. La prova nel progetto Cubase dell'utente non è stata effettuata.
+Il VST3 Windows è stato compilato con nome interno **GRANULAR FREEZE**, confermato da un host VST3. Ha superato tutti i test audio a 44,1 / 48 / 96 / 192 kHz. I risultati identificano il modulo verificato e il suo SHA-256. La prova nel progetto Cubase dell'utente non è stata effettuata.
 
 Il VST3 compilato resta per ora nella copia locale: il README dell'export RNBO 1.3.3 richiede un'autorizzazione Steinberg per la distribuzione di questi binari. Pubblicare la patch RNBO non equivale a fornire il sorgente completo del plugin compilato dal servizio cloud. Vedi [note sulle licenze](licenses/NOTICE.md).
 

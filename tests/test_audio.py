@@ -118,5 +118,5 @@ for sr, block in [(44100, 64), (48000, 256), (96000, 128), (192000, 512)]:
         save_wav('freeze-400Hz.wav', frozen, sr)
     print(json.dumps(row), flush=True)
 
-(OUT / 'results.json').write_text(json.dumps({'plugin': PLUGIN.name, 'binary_sha256': hashlib.sha256(PLUGIN.read_bytes()).hexdigest(), 'passed': True, 'results': results}, indent=2), encoding='utf-8')
+(OUT / 'results.json').write_text(json.dumps({'plugin': PLUGIN.name, 'internal_name': p.name, 'binary_sha256': hashlib.sha256(PLUGIN.read_bytes()).hexdigest(), 'passed': True, 'results': results}, indent=2), encoding='utf-8')
 print('ALL AUDIO CHECKS PASSED')
